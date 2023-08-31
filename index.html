@@ -1403,14 +1403,12 @@
         methods: {
             addFavAnimation() {
                 this.lottieAnimate = lottie.loadAnimation(this.animateConfig);
-                this.lottieAnimate.goToAndStop(0, true);
                 this.lottieAnimate.playSegments([0, 60], true);
             },
 
             removeFavAnimation() {
                 this.lottieAnimate = lottie.loadAnimation(this.animateConfig);
-                this.lottieAnimate.goToAndStop(60, true)
-                this.lottieAnimate.play()
+                this.lottieAnimate.playSegments([60, 170], true);
             },
 
             doAnimation() {
