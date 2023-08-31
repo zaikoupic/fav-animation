@@ -1,19 +1,3 @@
-.fav-animation {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    width: 300px;
-    height: 300px;
-    background-color: #0B0B0B;
-    transform: translate(-50%, -100%);
-    transition: transform .3s;
-    pointer-events: none;
-}
-
-.fav-animation--active {
-    transform: translate(-50%, 0);
-}
-
 .fav-btn {
     width: 71px;
     height: 71px;
@@ -21,18 +5,17 @@
     color: #fff;
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color .3s;
 }
 
-.fav-btn--active {
+.fav-btn > svg {
+    transition: background-color .3s;
+    border-radius: 50%;
+}
+
+.fav-btn--active > svg {
     background-color: #FF3D3D;
 }
 
-.fav-animation__iconStroke, .fav-animation__iconBackground {
-    opacity: 0;
-    transition: background-color .3s;
-}
-
-.fav-animation__iconBackground--active, .fav-animation__iconStroke--active {
-    opacity: 1;
+.fav-btn > svg > g {
+    transform: scale(1.6) translate(-74px, -68px);
 }
