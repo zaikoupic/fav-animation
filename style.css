@@ -10,15 +10,29 @@
     pointer-events: none;
 }
 
-.fav-animation__active {
+.fav-animation--active {
     transform: translate(-50%, 0);
 }
 
-.fav-btn{
-    width: max-content;
-    padding: 20px 70px;
-    background-color: #4081FF;
+.fav-btn {
+    width: 71px;
+    height: 71px;
+    background-color: #C1C1C1;
     color: #fff;
-    border-radius: 15px;
+    border-radius: 50%;
     cursor: pointer;
+    transition: background-color .3s;
+}
+
+.fav-btn--active {
+    background-color: #FF3D3D;
+}
+
+.fav-animation__iconStroke, .fav-animation__iconBackground {
+    opacity: 0;
+    transition: background-color .3s;
+}
+
+.fav-animation__iconBackground--active, .fav-animation__iconStroke--active {
+    opacity: 1;
 }
