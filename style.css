@@ -1,4 +1,5 @@
-.fav-btn {
+.favBtn {
+    position: relative;
     width: 71px;
     height: 71px;
     background-color: #C1C1C1;
@@ -7,15 +8,35 @@
     cursor: pointer;
 }
 
-.fav-btn > svg {
-    transition: background-color .3s;
-    border-radius: 50%;
+.favBtn__iconWrap--active {
+    fill: #FF3D3D
 }
 
-.fav-btn--active > svg {
+.favBtn__icon {
+    opacity: 0;
+}
+
+.favBtn__icon--stroke, .favBtn__icon--fill {
+    opacity: 1;
+}
+
+.favBtn__animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.favBtn__animation > svg {
+    transition: background-color .3s;
+    border-radius: 50%;
     background-color: #FF3D3D;
 }
 
-.fav-btn > svg > g {
-    transform: scale(1.6) translate(-74px, -68px);
+.favBtn__animation > svg > g {
+    transform: scale(1.5) translate(-63px, -61px);
 }
+
+
