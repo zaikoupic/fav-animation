@@ -1393,11 +1393,19 @@
             animationPlay(firstFps, lastFps) {
                 this.lottieAnimate = lottie.loadAnimation(this.animateConfig);
                 this.lottieAnimate.playSegments([firstFps, lastFps], true);
-                setTimeout(() => this.lottieAnimate.destroy(), 1400)
+                setTimeout(() => {
+                    this.lottieAnimate.destroy()
+                    this.lottieAnimate = null
+                }, 1400)
+
             },
 
             doAnimation() {
                 this.favActive = !this.favActive
+
+                if (this.lottieAnimate) {
+                    return
+                }
 
                 if (this.favActive) {
                     this.animationPlay(0, 70)
