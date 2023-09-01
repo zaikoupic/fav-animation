@@ -1387,6 +1387,10 @@
                     animationData: this.jasonAn,
                 }
             },
+
+            strokeIconEL() {
+                return document.querySelector('.favBtn__iconStroke')
+            }
         },
 
         methods: {
@@ -1399,9 +1403,10 @@
                 this.lottieAnimate = lottie.loadAnimation(this.animateConfig);
                 this.lottieAnimate.playSegments([firstFps, lastFps], true);
                 setTimeout(() => {
+                    this.strokeIconEL.style.opacity = '1'
                     this.lottieAnimate.destroy()
                     this.lottieAnimate = null
-                }, 1400)
+                }, 1000)
             },
 
             doAnimation() {
@@ -1410,20 +1415,14 @@
                 }
 
                 this.favActive = !this.favActive
-                const fillEl = document.querySelector('.favBtn__fill')
 
                 if (this.favActive) {
-                    fillEl.classList.add('favBtn__fill--active')
-                    setTimeout(() => {
-                        this.animationPlay(0, 70)
-                        this.iconFillChange('1')
-                    }, 300)
+                    this.animationPlay(30, 70)
+                    this.iconFillChange('1')
                 } else {
+                    this.strokeIconEL.style.opacity = '0'
                     this.animationPlay(100, 170)
-                    setTimeout(() => {
-                        fillEl.classList.remove('favBtn__fill--active')
-                        this.iconFillChange('0')
-                    }, 1350)
+                    this.iconFillChange('0')
                 }
             }
         },
@@ -1447,7 +1446,7 @@
 
                     <div class="favBtn__animation" :class="{ 'favBtn__animation--active' : favActive }"></div>
 
-                    <div class="favBtn__fill"></div>
+                    <div class="favBtn__fill" :class="{ 'favBtn__fill--active' : favActive }"></div>
                 </div>
             </div>`
     }).mount('#favAnimation')

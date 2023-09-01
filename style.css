@@ -33,7 +33,7 @@
 .favBtn__animation > svg {
     transition: background-color .3s;
     border-radius: 50%;
-    background-color: #FF3D3D;
+    /*background-color: #FF3D3D;*/
     width: calc(100% - 1px) !important; /* Перебиваем width либы, для коректной ширины */
 }
 
@@ -51,7 +51,7 @@
     background-color: #FF3D3D;
     border-radius: 50%;
     transition-property: width, height;
-    transition-duration: .3s;
+    transition-duration: .1s;
 }
 
 .favBtn__fill--active {
