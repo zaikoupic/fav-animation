@@ -14,6 +14,12 @@
 
 <script>
     Vue.createApp({
+        props: {
+            size: {
+                default: false
+            }
+        },
+
         data() {
             return {
                 jasonAn: {
@@ -1428,8 +1434,8 @@
         },
 
         template: `
-            <div>
-                <div @click="doAnimation()" class="favBtn">
+            <div class="favBtn" :class="{ 'favBtn--small' : size }">
+                <div @click="doAnimation()" class="favBtn__wrap">
                     <svg class="favBtn__iconWrap"
                          :class="{ 'favBtn__iconWrap--active' : favActive }"
                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 71" fill="none">

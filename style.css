@@ -1,11 +1,27 @@
 .favBtn {
-    position: relative;
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.favBtn:not(.favBtn--small) {
+    width: 50px;
+    height: 50px;
+}
+
+.favBtn--small {
     width: 40px;
     height: 40px;
+}
+
+.favBtn__wrap {
+    position: relative;
     background-color: #C1C1C1;
     color: #fff;
     border-radius: 50%;
     cursor: pointer;
+    height: 100%;
 }
 
 .favBtn__iconWrap--active {
@@ -35,7 +51,6 @@
 .favBtn__animation > svg {
     transition: background-color .3s;
     border-radius: 50%;
-    /*background-color: #FF3D3D;*/
     width: calc(100% - 1px) !important; /* Перебиваем width либы, для коректной ширины */
 }
 
