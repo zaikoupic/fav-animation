@@ -11,8 +11,9 @@
 
 <script src="https://unpkg.com/vue@next"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.11/lottie.min.js"></script>
+<script src="./fav/main.js"></script>
 
-<script>
+<!--<script>
     Vue.createApp({
         props: {
             size: {
@@ -1433,10 +1434,10 @@
         },
 
         template: `
-            <div class="favBtn" :class="{ 'favBtn--small' : size }">
+            <div class="favBtn" :class="{ 'favBtn&#45;&#45;small' : size }">
                 <div @click="doAnimation()" class="favBtn__wrap">
                     <svg class="favBtn__iconWrap"
-                         :class="{ 'favBtn__iconWrap--active' : favActive }"
+                         :class="{ 'favBtn__iconWrap&#45;&#45;active' : favActive }"
                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 71" fill="none">
                         <circle cx="36.4658" cy="35.5" r="35.5"/>
                         <path
@@ -1449,13 +1450,13 @@
                             fill="#fff"/>
                     </svg>
 
-                    <div class="favBtn__animation" :class="{ 'favBtn__animation--active' : favActive }"></div>
+                    <div class="favBtn__animation" :class="{ 'favBtn__animation&#45;&#45;active' : favActive }"></div>
 
-                    <div class="favBtn__fill" :class="{ 'favBtn__fill--active' : favActive }"></div>
+                    <div class="favBtn__fill" :class="{ 'favBtn__fill&#45;&#45;active' : favActive }"></div>
                 </div>
             </div>`
     }).mount('#favAnimation')
-</script>
+</script>-->
 
 </body>
 </html>
