@@ -34,10 +34,11 @@
     transition: background-color .3s;
     border-radius: 50%;
     background-color: #FF3D3D;
+    width: calc(100% - 1px) !important; /* Перебиваем width либы, для коректной ширины */
 }
 
 .favBtn__animation > svg > g {
-    transform: scale(1.55) translate(-71px, -65px);
+    transform: scale(1.55) translate(-69px, -65px);
 }
 
 .favBtn__fill {
