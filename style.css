@@ -9,15 +9,16 @@
 }
 
 .favBtn__iconWrap--active {
-    fill: #FF3D3D
+    position: relative;
+    z-index: 1;
 }
 
-.favBtn__icon {
-    opacity: 0;
-}
-
-.favBtn__icon--stroke, .favBtn__icon--fill {
+.favBtn__iconStroke {
     opacity: 1;
+}
+
+.favBtn__iconFill {
+    opacity: 0;
 }
 
 .favBtn__animation {
@@ -39,4 +40,20 @@
     transform: scale(1.55) translate(-71px, -65px);
 }
 
+.favBtn__fill {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FF3D3D;
+    border-radius: 50%;
+    transition-property: width, height;
+    transition-duration: .3s;
+}
 
+.favBtn__fill--active {
+    width: 100%;
+    height: 100%;
+}

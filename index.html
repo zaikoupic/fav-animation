@@ -1390,6 +1390,11 @@
         },
 
         methods: {
+            iconFillChange(value) {
+                const likeFillEl = document.querySelector('.favBtn__iconFill')
+                likeFillEl.style.opacity = value
+            },
+
             animationPlay(firstFps, lastFps) {
                 this.lottieAnimate = lottie.loadAnimation(this.animateConfig);
                 this.lottieAnimate.playSegments([firstFps, lastFps], true);
@@ -1397,20 +1402,28 @@
                     this.lottieAnimate.destroy()
                     this.lottieAnimate = null
                 }, 1400)
-
             },
 
             doAnimation() {
-                this.favActive = !this.favActive
-
                 if (this.lottieAnimate) {
                     return
                 }
 
+                this.favActive = !this.favActive
+                const fillEl = document.querySelector('.favBtn__fill')
+
                 if (this.favActive) {
-                    this.animationPlay(0, 70)
+                    fillEl.classList.add('favBtn__fill--active')
+                    setTimeout(() => {
+                        this.animationPlay(0, 70)
+                        this.iconFillChange('1')
+                    }, 300)
                 } else {
                     this.animationPlay(100, 170)
+                    setTimeout(() => {
+                        fillEl.classList.remove('favBtn__fill--active')
+                        this.iconFillChange('0')
+                    }, 1285)
                 }
             }
         },
@@ -1423,18 +1436,18 @@
                          xmlns="http://www.w3.org/2000/svg" width="72" height="71" viewBox="0 0 72 71" fill="none">
                         <circle cx="36.4658" cy="35.5" r="35.5"/>
                         <path
-                            class="favBtn__icon"
-                            :class="{ 'favBtn__icon--stroke' : !favActive }"
+                            class="favBtn__iconStroke"
                             d="M53.1359 25.1414C51.8371 23.3957 50.0045 22.1213 47.9159 21.5114C43.4959 20.3414 39.2959 22.9914 36.4859 25.5114C33.7659 23.0614 28.6059 19.5114 23.4159 22.1414C21.4109 23.1778 19.7988 24.84 18.8242 26.8758C17.8496 28.9115 17.5658 31.2097 18.0159 33.4214C18.4597 35.7293 19.324 37.936 20.5659 39.9314C23.8259 45.2214 29.1659 49.7614 36.3259 53.3214H36.4859H36.5859H36.6559C41.999 50.8004 46.7286 47.1457 50.5159 42.6114C53.6859 38.6714 55.3159 34.4014 55.1059 30.6114C55.0127 28.6317 54.3263 26.7259 53.1359 25.1414ZM52.1359 32.6714C51.4059 37.8214 47.3559 42.1314 45.0059 44.2514C42.4281 46.5665 39.5649 48.5425 36.4859 50.1314C32.4073 48.075 28.7374 45.293 25.6559 41.9214C23.4159 39.3814 20.7359 35.4514 20.7459 31.2214C20.7337 29.7931 21.1477 28.3936 21.935 27.2019C22.7224 26.0102 23.8473 25.0804 25.1659 24.5314C25.8334 24.2632 26.5466 24.1274 27.2659 24.1314C30.8259 24.1314 34.3759 27.2214 36.1759 29.3714C36.2101 29.4164 36.2538 29.4532 36.304 29.4791C36.3541 29.5051 36.4095 29.5195 36.4659 29.5214C36.5233 29.5229 36.5804 29.5111 36.6324 29.4868C36.6845 29.4625 36.7302 29.4264 36.7659 29.3814L37.1959 28.9214C37.5459 28.5414 37.8959 28.1414 38.1959 27.8214C39.9959 26.2214 44.5359 22.5714 48.6259 24.9214C49.5497 25.4765 50.3468 26.2191 50.9659 27.1014C52.053 28.7405 52.4716 30.7334 52.1359 32.6714Z"
                             fill="#fff"/>
                         <path
-                            class="favBtn__icon"
-                            :class="{ 'favBtn__icon--fill' : favActive }"
+                            class="favBtn__iconFill"
                             d="M53.1359 25.1414C51.8371 23.3957 50.0045 22.1213 47.9159 21.5114C43.4959 20.3414 39.2959 22.9914 36.4859 25.5114C33.7659 23.0614 28.6059 19.5114 23.4159 22.1414C21.4109 23.1778 19.7988 24.84 18.8242 26.8758C17.8496 28.9115 17.5658 31.2097 18.0159 33.4214C18.4597 35.7293 19.324 37.936 20.5659 39.9314C23.8259 45.2214 29.1659 49.7614 36.3259 53.3214H36.4859H36.5859H36.6559C41.999 50.8004 46.7286 47.1457 50.5159 42.6114C53.6859 38.6714 55.3159 34.4014 55.1059 30.6114C55.0127 28.6317 54.3263 26.7259 53.1359 25.1414Z"
                             fill="#fff"/>
                     </svg>
 
                     <div class="favBtn__animation" :class="{ 'favBtn__animation--active' : favActive }"></div>
+
+                    <div class="favBtn__fill"></div>
                 </div>
             </div>`
     }).mount('#favAnimation')
