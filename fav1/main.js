@@ -1442,5 +1442,5 @@
                     <div class="favBtn__fill" :class="{ 'favBtn__fill--active' : favActive }"></div>
                 </div>
             </div>`
-    }).mount('#favAnimation')
+    }).mount('#favAnimation1')
 })();
