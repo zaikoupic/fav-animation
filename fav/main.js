@@ -1358,6 +1358,9 @@
 
     app.favComponent = {
         props: {
+            active: {
+                default: false
+            },
             size: {
                 default: false
             }
@@ -1366,7 +1369,13 @@
         data() {
             return {
                 lottieAnimate: null,
-                favActive: false,
+                favActive: this.active,
+            }
+        },
+
+        mounted() {
+            if (this.favActive) {
+                this.iconFillChange('1')
             }
         },
 
