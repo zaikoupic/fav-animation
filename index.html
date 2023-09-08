@@ -7,12 +7,29 @@
 </head>
 <body>
 
-<div id="favAnimation"></div>
-<div id="favAnimation1"></div>
+<div id="mount"></div>
 
+
+<script>
+    const app = {}
+</script>
 <script src="https://unpkg.com/vue@next"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.11/lottie.min.js"></script>
 <script src="./fav/main.js"></script>
-<script src="./fav1/main.js"></script>
+<script>
+
+    Vue.createApp({
+        components: {
+            'fav-component': app.favComponent
+        },
+
+        template: `
+            <fav-component :size="'small'"></fav-component>
+            <fav-component></fav-component>
+            <fav-component></fav-component>
+            <fav-component></fav-component>
+        `
+    }).mount('#mount')
+</script>
 </body>
 </html>

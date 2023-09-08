@@ -1,4 +1,5 @@
 (function () {
+
     const jasonAn = {
         "nm": "Comp 1", "ddd": 0, "h": 400, "w": 400, "meta": {"g": "LottieFiles AE 1.0.0"}, "layers": [{
             "ty": 4,
@@ -1354,7 +1355,8 @@
         }]
     }
 
-    Vue.createApp({
+
+    app.favComponent = {
         props: {
             size: {
                 default: false
@@ -1442,5 +1444,5 @@
                     <div class="favBtn__fill" :class="{ 'favBtn__fill--active' : favActive }"></div>
                 </div>
             </div>`
-    }).mount('#favAnimation')
+    }
 })();
