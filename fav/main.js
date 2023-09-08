@@ -1382,9 +1382,9 @@
         watch: {
             favActive() {
                 if (this.favActive) {
-                    this.$emit('changeActive')
-                }else{
-                    this.$emit('changeInActive')
+                    this.$emit('change', {status: true})
+                } else {
+                    this.$emit('change', {status: false})
                 }
             }
         },

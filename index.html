@@ -24,20 +24,15 @@
         },
 
         methods: {
-            changeActive() {
-                console.log('active')
-            },
-
-            changeInActive() {
-                console.log('inActive')
+            change(status) {
+                console.log(status)
             }
         },
 
         template: `
             <fav-component :size="'small'"
                            :active="true"
-                           @changeActive="changeActive()"
-                           @changeInActive="changeInActive()"></fav-component>
+                           @change="change"></fav-component>
             <fav-component></fav-component>
             <fav-component></fav-component>
             <fav-component></fav-component>
