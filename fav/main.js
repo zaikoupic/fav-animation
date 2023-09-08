@@ -1379,6 +1379,16 @@
             }
         },
 
+        watch: {
+            favActive() {
+                if (this.favActive) {
+                    this.$emit('changeActive')
+                }else{
+                    this.$emit('changeInActive')
+                }
+            }
+        },
+
         computed: {
             animateConfig() {
                 return {

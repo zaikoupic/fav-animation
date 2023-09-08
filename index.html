@@ -23,8 +23,21 @@
             'fav-component': app.favComponent
         },
 
+        methods: {
+            changeActive() {
+                console.log('active')
+            },
+
+            changeInActive() {
+                console.log('inActive')
+            }
+        },
+
         template: `
-            <fav-component :size="'small'" :active="true"></fav-component>
+            <fav-component :size="'small'"
+                           :active="true"
+                           @changeActive="changeActive()"
+                           @changeInActive="changeInActive()"></fav-component>
             <fav-component></fav-component>
             <fav-component></fav-component>
             <fav-component></fav-component>
