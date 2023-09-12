@@ -29,8 +29,6 @@
 
 .favBtn__iconStroke {
     opacity: 1;
-    scale: 0.9;
-    transform: translate(4px, 3.5px);
 }
 
 .favBtn__iconFill {

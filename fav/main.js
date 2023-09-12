@@ -1399,10 +1399,6 @@
                     animationData: jasonAn,
                 }
             },
-
-            strokeIconEL() {
-                return this.$refs.iconStroke
-            }
         },
 
         methods: {
@@ -1414,26 +1410,20 @@
             animationPlay(firstFps, lastFps) {
                 this.lottieAnimate = lottie.loadAnimation(this.animateConfig);
                 this.lottieAnimate.playSegments([firstFps, lastFps], true);
-                setTimeout(() => {
-                    this.strokeIconEL.style.opacity = '1'
-                    this.lottieAnimate.destroy()
-                    this.lottieAnimate = null
-                }, 1000)
             },
 
             doAnimation() {
-                if (this.lottieAnimate) {
-                    return
-                }
-
                 this.favActive = !this.favActive
 
                 if (this.favActive) {
                     this.animationPlay(21, 70)
                     this.iconFillChange('1')
                 } else {
-                    this.strokeIconEL.style.opacity = '0'
-                    this.animationPlay(100, 181)
+                    if (this.lottieAnimate) {
+                        this.lottieAnimate.destroy()
+                        this.lottieAnimate = null
+                    }
+
                     this.iconFillChange('0')
                 }
             }
